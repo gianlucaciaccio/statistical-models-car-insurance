@@ -33,13 +33,13 @@ The analysis is structured in the following steps:
 
 - Feature selection using the [Random Forest](https://en.wikipedia.org/wiki/Random_forest) algorithm
 
-- Comparison of different counting data models ([Poisson Regression](https://en.wikipedia.org/wiki/Poisson_regression), Negative Binomial, [Zero-Inflated](https://en.wikipedia.org/wiki/Zero-inflated_model) and [Hurdle models](https://en.wikipedia.org/wiki/Hurdle_model)), evaluated using the [Dawid-Sebastiani scoring rule](https://stats.stackexchange.com/questions/71720/error-metrics-for-cross-validating-poisson-models).
+- Comparison of different counting data models ([Poisson Regression](https://en.wikipedia.org/wiki/Poisson_regression), Negative Binomial, [Zero-Inflated](https://en.wikipedia.org/wiki/Zero-inflated_model) and [Hurdle models](https://en.wikipedia.org/wiki/Hurdle_model)), to predict claim frequency. The models are evaluated using the [Dawid-Sebastiani scoring rule](https://stats.stackexchange.com/questions/71720/error-metrics-for-cross-validating-poisson-models) on test sample (the lower the better)
 
-- Gamma Regression for Severity modeling
+- Gamma Regression to predict claim severity
 
 #### Pricing and Relativities calculation:
 
-After choosing the best models using the test sample, they are fitted on the full dataset to calculate the pure premium and then the accuracy of the prediction is evaluated with respect to the observed data, using MAE and RMSE.
+After choosing the best models using the test sample, they are fitted on the full dataset to calculate the pure premium and then the accuracy of this prediction is evaluated with respect to the observed data, using MAE and RMSE.
 
 The coefficients estimated on the full sample of the two chosen models are exponentiated, and the relativities of the risk factors are calculated from these values.
 
